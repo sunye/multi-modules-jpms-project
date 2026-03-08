@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.atlanmod.commons</groupId>
-        <artifactId>multi-modules-jpms-project</artifactId>
+        <artifactId>multi-module-jpms-project</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 

@@ -5,13 +5,13 @@ import org.atlanmod.commons.domain.User;
 
 import java.util.*;
 
-public class UserDao implements Repository<User> {
+public class UserRepository implements Repository<User> {
     private final Map<Integer, User> users = new HashMap<>();
 
-    public UserDao() {
+    public UserRepository() {
     }
 
-    public UserDao(Map<Integer, User> newUsers) {
+    public UserRepository(Map<Integer, User> newUsers) {
         for (Map.Entry<Integer, User> each: newUsers.entrySet()) {
             this.users.put(each.getKey(), each.getValue());
         }

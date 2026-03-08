@@ -4,12 +4,55 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>org.atlanmod.commons</groupId>
-        <artifactId>multi-modules-jpms-project</artifactId>
+        <artifactId>multi-module-jpms-project</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>dao-module</artifactId>
-    <name>DAO Module</name>
-    <packaging>jar</packaging>
+    <artifactId>main-module</artifactId>
+    <name>Main Module</name>
+    <packaging>bundle</packaging>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.felix</groupId>
+                <artifactId>maven-bundle-plugin</artifactId>
+                <configuration>
+                    <instructions>
+                        <jpms-module-info>org.atlanmod.commons.main.module</jpms-module-info>
+                        <Bundle-SymbolicName>${project.groupId}</Bundle-SymbolicName>
+                        <Import-Package>
+                            org.osgi.framework,
+                            org.jspecify.annotations,
+                            com.google.errorprone.annotations
+                        </Import-Package>
+                        <Export-Package>
+                            !org.atlanmod.commons.*.internal.*,
+                            org.atlanmod.commons.*
+                        </Export-Package>
+                    </instructions>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.atlanmod.commons</groupId>
+            <artifactId>api-module</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.atlanmod.commons</groupId>
+            <artifactId>user-repository-module</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.atlanmod.commons</groupId>
+            <artifactId>entity-module</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

@@ -1,2 +1,4 @@
-module $MODULE_NAME$ {
+module org.atlanmod.commons.entity.module {
+    exports org.atlanmod.commons.domain;
+    requires static org.jspecify;
 }
